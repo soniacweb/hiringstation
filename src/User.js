@@ -14,17 +14,23 @@
 
 
 class User {
-    constructor(name, lastName) {
+    static allUsers = []
+    constructor(name, lastName, age) {
         this.name = name;
         this.lastName = lastName;
+        this.age = age
+        this.constructor.allUsers.push(this)
     }
-
+    isOver18() {
+        this.age > 18 ? console.log('Proceed') : console.log('You\'ll need parental consent')
+    }
 }
 
-// const Sonia = new User('Sonia', 'C')
+const Sonia = new User('Sonia', 'C', 12)
+Sonia.isOver18()
 // Sonia.bookingAvailability()
 // console.log(Sonia)
-
+// console.log(User.allUsers)
 module.exports = User
 
 

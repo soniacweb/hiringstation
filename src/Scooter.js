@@ -35,9 +35,9 @@ class Scooter {
 }
 
 
-const Scooter1 = new Scooter('Ford', 'red', 2012);
-Scooter1.charge()
-console.log('After charging', Scooter1)
+// const Scooter1 = new Scooter('Ford', 'red', 2012);
+// Scooter1.charge()
+// console.log('After charging', Scooter1)
 
 // const Scooter2 = new Scooter('Ford', 'yellow', 2012);
 
