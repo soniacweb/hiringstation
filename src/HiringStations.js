@@ -1,4 +1,4 @@
-// const Scooter = require("./Scooter");
+const Scooter = require("./Scooter");
 
 // inventoryList.push(this)
 
@@ -18,8 +18,8 @@ class HiringStation {
         // console.log(searchResults)
         console.log(searchResults ? `${model} is available, we need to check if it's charged for you.` : `Sorry, ${model} is not available.`)
     }
-   isSelectedModelCharged(model) {
-      console.log(Scooter.isCharged ? `Book £{model}`: `Please select another model`)
+   isSelectedModelCharged() {
+      console.log(Scooter.isCharged ? `Book £{this.modelName}`: `Please select another model`)
    }
 }
 

@@ -11,8 +11,6 @@
 // Once you’re finished, push your code to a public github repository and send me the link. I’ll review it over the weekend and give you some feedback. You can also upload your airport code if you’d like me to review that. If anyone needs help with using git/github, let me know!
 
 
-
-
 class User {
     static allUsers = []
     constructor(name, lastName, age) {
@@ -21,16 +19,17 @@ class User {
         this.age = age
         this.constructor.allUsers.push(this)
     }
+    welcome() {
+        console.log(`Hi ${this.name}, welcome!`)
+    }
+
     isOver18() {
-        this.age > 18 ? console.log('Proceed') : console.log('You\'ll need parental consent')
+        this.age > 18 ? console.log('You\'re over 18, so proceed to booking.') : console.log('You\'ll need parental consent, sorry.')
     }
 }
 
-const Sonia = new User('Sonia', 'C', 12)
-Sonia.isOver18()
-// Sonia.bookingAvailability()
-// console.log(Sonia)
-// console.log(User.allUsers)
+
+
 module.exports = User
 
 

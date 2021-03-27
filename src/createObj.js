@@ -14,23 +14,36 @@ const Scooter = require('./Scooter');
 // const newHS = new HiringStation('Slough')
 // console.log('newhs', newHS)
 
+// creates a new user, welcomes user registration, checks if user is over 18 before selecting scooter.
+
 function bookingForm(firstName, lastName, age, location, ScooterModel, modelColour, modelYear) {
    const newUser = new User(firstName, lastName, age)
+   if (newUser) {
+   newUser.welcome()
+   newUser.isOver18()
+   }
    const yourStation = new HiringStation(location)
-   console.log(            'YOUR STATION', yourStation)
    const scooterSearch = new Scooter(ScooterModel, modelColour, modelYear)
-   const updateIventory = yourStation.inventory(ScooterModel)
-   const searchAvailability = yourStation.selectFromInventory(ScooterModel) 
+   if (newUser.isOver18) {
+   yourStation.inventory(ScooterModel)
+   yourStation.selectFromInventory(ScooterModel)
+   yourStation.isSelectedModelCharged(ScooterModel)
+
+//    yourStation.inventory()
+//    yourStation.selectFromInventory()
+//    yourStation.isSelectedModelCharged()
+
+   } else return
 //  console.log({ newUser, yourStation, scooterSearch, updateIventory, searchAvailability })
- return { newUser, yourStation, scooterSearch, updateIventory, searchAvailability }
+ return { newUser, yourStation, scooterSearch }
 }
 
-const customer1 = bookingForm('Sonia', 'Choudhury', 32, 'Milton Keynes', 'TVS Jupiter', 'Orange', 2020)
-const customer2 = bookingForm('Shuili', 'Khatun', 40, 'London', 'Honda Dio', 'Pink', 2010)
-const customer3 = bookingForm('Aeden', 'Lee', 10, 'South London', 'Suzuki Access', 'Pink', 2010)
+ bookingForm('Sonia', 'Choudhury', 32, 'Milton Keynes', 'TVS Jupiter', 'Orange', 2020)
+ bookingForm('Shuili', 'Khatun', 40, 'London', 'Honda Dio', 'Pink', 2010)
+ bookingForm('Aeden', 'Lee', 10, 'South London', 'Suzuki Access', 'Black', 2017)
+ bookingForm('Elliot', 'King', 43, 'West London', 'Ford', 'White', 2019)
 
-// console.log('All Users: ', User.allUsers)
-
+ // stores all customers after registration 
 
 let customers = []
 const customerDatabase = () => {
