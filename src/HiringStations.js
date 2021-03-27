@@ -19,7 +19,7 @@ class HiringStation {
         console.log(searchResults ? `${model} is available, we need to check if it's charged for you.` : `Sorry, ${model} is not available.`)
     }
    isSelectedModelCharged() {
-      console.log(Scooter.isCharged ? `Book £{this.modelName}`: `Please select another model`)
+      console.log(this.isCharged ? `Book £{this.modelName}`: `Please select another model`)
    }
 }
 

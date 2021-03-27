@@ -20,20 +20,24 @@ function bookingForm(firstName, lastName, age, location, ScooterModel, modelColo
    const newUser = new User(firstName, lastName, age)
    if (newUser) {
    newUser.welcome()
-   newUser.isOver18()
    }
    const yourStation = new HiringStation(location)
    const scooterSearch = new Scooter(ScooterModel, modelColour, modelYear)
-   if (newUser.isOver18) {
+   if (newUser.age >= 18) {
    yourStation.inventory(ScooterModel)
    yourStation.selectFromInventory(ScooterModel)
-   yourStation.isSelectedModelCharged(ScooterModel)
-
+//    yourStation.isSelectedModelCharged(ScooterModel)
+   scooterSearch.isElectric()
+   scooterSearch.charge()
+   } else if (newUser.age < 18) {
+    newUser.isOver18()
+   }
+    
 //    yourStation.inventory()
 //    yourStation.selectFromInventory()
 //    yourStation.isSelectedModelCharged()
 
-   } else return
+
 //  console.log({ newUser, yourStation, scooterSearch, updateIventory, searchAvailability })
  return { newUser, yourStation, scooterSearch }
 }
