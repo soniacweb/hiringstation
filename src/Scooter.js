@@ -31,7 +31,6 @@ class Scooter {
         } else console.log(`You have selected a manual ${this.color} ${this.modelName}`)
     }
     isManual() {
-        this.manual = true;
         if (this.manual === true) {
         console.log(`You have selected a manual ${this.color} ${this.modelName}`)
     } else {
@@ -44,13 +43,15 @@ class Scooter {
         this.isCharged = true;
         // console.log(this.isCharged)
         console.log(`${this.modelName} charged!`); 
+        this.isSelectedModelCharged()
    }.bind(this), 2000); //wait 2 seconds
 }
 isSelectedModelCharged() {
-    console.log(this.isCharged ? `£{this.modelName} booking confirmed.`: `Please select another model`)
+    console.log(this.isCharged ? `${this.modelName} booking confirmed.`: `Please select another model`)
  }
 }
 
+console.log(Scooter.isSelectedModelCharged)
 
 // const Scooter1 = new Scooter('Ford', 'red', 2012);
 // Scooter1.charge()
