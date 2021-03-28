@@ -5,15 +5,16 @@
 class Scooter {
     constructor(modelName, color, year) {
         // super(location)
-        if (modelName === undefined && modelName.length > 0) {
+        if (modelName !== undefined && modelName.length > 0) {
+            this.modelName = modelName;
+        } else {
             throw new Error('Scooter must have a model name') 
-        } else {
-        this.modelName = modelName;
             }
-        if (color === undefined && color.length > 0) {
-            throw new Error('Scooter model must have a color') 
+        if (color !== undefined && color.length > 0) {
+            this.color = color;
         } else {
-        this.color = color;
+            throw new Error('Scooter model must have a color') 
+
         }
         if (year === undefined || !Number.isInteger(year)) {
             throw new Error('Must specify year') 
