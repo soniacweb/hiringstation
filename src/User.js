@@ -14,9 +14,24 @@
 class User {
     static allUsers = []
     constructor(name, lastName, age) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age
+        if (typeof name === 'string' && name.length > 0) {
+            this.name = name;          
+        }
+        else {
+            throw new Error('User must have a name');
+        }
+        if (typeof lastName === 'string' && lastName.length > 0) {
+            this.lastName = lastName;
+        }  else {
+            throw new Error('User must have a last name');
+        }
+        if (!Number.isInteger(age)) {
+            throw new Error('User must have numeric age input');
+        }
+        else {
+            this.age = age
+        }
+        
         this.constructor.allUsers.push(this)
     }
     welcome() {
@@ -27,7 +42,6 @@ class User {
         this.age > 18 ? console.log('You\'re over 18, so proceed to booking.') : console.log('You\'ll need parental consent, sorry.')
     }
 }
-
 
 
 module.exports = User

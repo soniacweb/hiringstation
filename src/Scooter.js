@@ -5,9 +5,22 @@
 class Scooter {
     constructor(modelName, color, year) {
         // super(location)
+        if (modelName === undefined && modelName.length > 0) {
+            throw new Error('Scooter must have a model name') 
+        } else {
         this.modelName = modelName;
+            }
+        if (color === undefined && color.length > 0) {
+            throw new Error('Scooter model must have a color') 
+        } else {
         this.color = color;
+        }
+        if (year === undefined || !Number.isInteger(year)) {
+            throw new Error('Must specify year') 
+        } else {
         this.year = year;
+        }
+        
         this.manual = true;
         this.isCharged = false;
     }
@@ -26,12 +39,16 @@ class Scooter {
     }
   } 
   charge() {
+      console.log('Please wait while your scooter charges for 2 seconds.')
     setTimeout(function(){
         this.isCharged = true;
         // console.log(this.isCharged)
         console.log(`${this.modelName} charged!`); 
    }.bind(this), 2000); //wait 2 seconds
 }
+isSelectedModelCharged() {
+    console.log(this.isCharged ? `£{this.modelName} booking confirmed.`: `Please select another model`)
+ }
 }
 
 

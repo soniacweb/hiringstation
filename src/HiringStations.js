@@ -4,23 +4,33 @@ const Scooter = require("./Scooter");
 
 class HiringStation {
     constructor(location) {
-        this.location = location;
+        if (location === undefined && location.length > 0) {
+            throw new Error('Specify aa location preference for hiring station') 
+        } else {
+            this.location = location;
+        }
+        
         this.inventoryList = [];
         
     } 
     inventory(modelName) {
+        if (typeof modelName === 'string' && modelName.length > 0) {
         this.inventoryList.push(modelName)
         console.log('inventory list available', this.inventoryList)
+        } else {
+            throw new Error('Inventory list not available');
+        }
     }
     selectFromInventory(model) {
+        if (typeof model === 'string' && model.length > 0) {
         // console.log('inside select from inventory', this.inventoryList)
         const searchResults = this.inventoryList.includes(model)
         // console.log(searchResults)
         console.log(searchResults ? `${model} is available, we need to check if it's charged for you.` : `Sorry, ${model} is not available.`)
+        } else {
+            throw new Error('Select from inventory');
+        }
     }
-   isSelectedModelCharged() {
-      console.log(this.isCharged ? `Book £{this.modelName}`: `Please select another model`)
-   }
 }
 
 // const stevenageStation = new HiringStation('Stevenage')

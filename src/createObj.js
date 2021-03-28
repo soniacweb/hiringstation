@@ -26,9 +26,15 @@ function bookingForm(firstName, lastName, age, location, ScooterModel, modelColo
    if (newUser.age >= 18) {
    yourStation.inventory(ScooterModel)
    yourStation.selectFromInventory(ScooterModel)
+   // while (scooterSearch.manual === false) {
+   //    scooterSearch.isElectric()
+   // }
 //    yourStation.isSelectedModelCharged(ScooterModel)
    scooterSearch.isElectric()
-   scooterSearch.charge()
+   // while (scooterSearch.isCharged === false) {
+   // scooterSearch.charge()
+   // scooterSearch.isSelectedModelCharged()
+   // }
    } else if (newUser.age < 18) {
     newUser.isOver18()
    }
