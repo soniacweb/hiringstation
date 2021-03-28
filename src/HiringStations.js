@@ -4,10 +4,10 @@ const Scooter = require("./Scooter");
 
 class HiringStation {
     constructor(location) {
-        if (location === undefined && location.length > 0) {
-            throw new Error('Specify aa location preference for hiring station') 
-        } else {
+        if (location === 'string' || location.length > 0) {
             this.location = location;
+        } else {
+           throw new Error('Specify a location preference for hiring station') 
         }
         
         this.inventoryList = [];

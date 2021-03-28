@@ -3,17 +3,6 @@ const User = require("./User");
 const Scooter = require('./Scooter');
 
 
-
-// const Sonia = new User('Sonia', 'C')
-// const LondonStation = new HiringStation('London')
-// const Scooter1 = new Scooter('Honda', 'red', 2012);
-// Scooter1.isManual();
-// LondonStation.inventory(Scooter1.modelName)
-// const Scooter2 = new Scooter('Ford', 'yellow', 2012);
-
-// const newHS = new HiringStation('Slough')
-// console.log('newhs', newHS)
-
 // creates a new user, welcomes user registration, checks if user is over 18 before selecting scooter.
 
 function bookingForm(firstName, lastName, age, location, ScooterModel, modelColour, modelYear) {
@@ -35,12 +24,6 @@ function bookingForm(firstName, lastName, age, location, ScooterModel, modelColo
 
 }
     
-//    yourStation.inventory()
-//    yourStation.selectFromInventory()
-//    yourStation.isSelectedModelCharged()
-
-
-//  console.log({ newUser, yourStation, scooterSearch, updateIventory, searchAvailability })
  return { newUser, yourStation, scooterSearch }
 }
 
@@ -54,7 +37,6 @@ function bookingForm(firstName, lastName, age, location, ScooterModel, modelColo
 let customers = []
 const customerDatabase = () => {
     customers.push(User.allUsers)
-    // console.log(customers)
     return customers
 }
 
